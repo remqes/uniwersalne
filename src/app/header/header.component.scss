@@ -1,0 +1,68 @@
+@import './../shared/shared.module.scss';
+
+app-header {
+    .header-logo {
+        grid-area: header-logo;
+        padding-left: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .header-account {
+        grid-area: header-account;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 36px;
+    }
+
+    .header-faq {
+        grid-area: header-faq;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 36px;
+    }
+
+    .header-more {
+        grid-area: header-more;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 36px;
+    }
+
+    .header-common {
+        display: grid;
+        width: calc(100% - 2rem);
+        padding: 1rem;
+        grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "header-logo header-logo header-logo header-logo header-logo header-logo header-account header-account header-faq header-more";
+   }
+
+    .header-background {
+        background-color: $main-background;
+        color: $main-text-primary;
+        display: grid;
+        width: calc(100% - 2rem);
+        padding: 1rem;
+        grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "header-logo header-logo header-logo header-logo header-logo header-logo header-account header-account header-faq header-more";
+    }
+
+    .header-background__dark {
+        @extend .header-common;
+        background-color: $main-background__darker;
+        color: $main-text-darkmode;
+    }
+
+    .header-background__contrast {
+        @extend .header-common;
+        background-color: $main-background__darker;
+        color: $main-text-contrast;
+    }
+}

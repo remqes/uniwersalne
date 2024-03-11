@@ -1,0 +1,7 @@
+@import './../shared/shared.module.scss';
+
+app-home-page {
+    .home-page__container {
+        background-color: $main-background__darker;
+    }
+}
