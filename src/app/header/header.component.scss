@@ -1,68 +1,73 @@
 @import './../shared/shared.module.scss';
 
 app-header {
-    .header-logo {
-        grid-area: header-logo;
-        padding-left: 1rem;
+
+    .header-common__fields {
         display: flex;
         align-items: center;
+        justify-content: center;
+        height: 36px;
+    }
+
+    .header-logo {
+        @extend .header-common__fields;
+        grid-area: header-logo;
+        padding-left: 1rem;
+        justify-content: left;
     }
 
     .header-account {
+        @extend .header-common__fields;
         grid-area: header-account;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 36px;
     }
 
     .header-faq {
+        @extend .header-common__fields;
         grid-area: header-faq;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 36px;
     }
 
     .header-more {
+        @extend .header-common__fields;
         grid-area: header-more;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 36px;
     }
 
     .header-common {
         display: grid;
         width: calc(100% - 2rem);
         padding: 1rem;
-        grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+        grid-template-columns: 75% 11% 7% 7%;
         grid-template-rows: auto;
         grid-template-areas: 
-            "header-logo header-logo header-logo header-logo header-logo header-logo header-account header-account header-faq header-more";
+            "header-logo header-account header-faq header-more";
    }
 
-    .header-background {
+    .header-background__white {
+        @extend .header-common;
         background-color: $main-background;
-        color: $main-text-primary;
-        display: grid;
-        width: calc(100% - 2rem);
-        padding: 1rem;
-        grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-        grid-template-rows: auto;
-        grid-template-areas: 
-            "header-logo header-logo header-logo header-logo header-logo header-logo header-account header-account header-faq header-more";
+        color: $main-text__primary;
     }
 
     .header-background__dark {
         @extend .header-common;
         background-color: $main-background__darker;
-        color: $main-text-darkmode;
+        color: $main-text__darkmode;
     }
 
     .header-background__contrast {
         @extend .header-common;
         background-color: $main-background__darker;
-        color: $main-text-contrast;
+        color: $main-text__contrast;
+    }
+
+    .header-font__small {
+        font-size: $text-font__small;
+    }
+
+    .header-font__medium {
+        font-size: $text-font__medium;
+    }
+
+    .header-font__large {
+        font-size: $text-font__large;
     }
 }
