@@ -1,0 +1,90 @@
+@import './../shared.module.scss';
+
+app-tile-record {
+
+    .tile-record__background {
+        margin-bottom: 2rem;
+        height: 200px;
+        padding: 1rem;
+        display: grid;
+        border-radius: 10px;
+        grid-template-rows: 17.5% 30% 25% 27.5%;
+        grid-template-columns: 33% 33% calc(20% - 1rem) 12%;
+        grid-template-areas: 
+            "tile-photo tile-title tile-title tile-title"
+            "tile-photo tile-desc tile-desc tile-fav"
+            "tile-photo tile-additional tile-additional ."
+            "tile-photo tile-info tile-info tile-price"
+    }
+
+    .tile-record__record-photo {
+        grid-area: tile-photo;
+    }
+
+    .tile-record__record-info {
+        grid-area: tile-info;
+        padding-left: 1rem;
+    }
+
+    .tile-record__record-additional {
+        grid-area: tile-additional;
+        padding-left: 1rem;
+
+        display: grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: auto;
+        grid-template-areas: "tile-city" "tile-info";
+
+        .tile-record__record-additional-city {
+            grid-area: tile-city;
+        }
+
+        .tile-record__record-additional-info {
+            grid-area: tile-info;
+        }
+    }
+
+    .tile-record__record-photo-photo {
+        height: 200px;
+        width: 350px;
+    }
+
+    .tile-record__record-title {
+        grid-area: tile-title;
+        padding: 1rem;
+    }
+
+    .tile-record__record-desc {
+        grid-area: tile-desc;
+        padding: 1rem;
+    }
+
+    .tile-record__prod-year {
+        font-size: 18px;
+    }
+
+    .tile-record__record-price {
+        grid-area: tile-price;
+        padding: 0.5rem;
+    }
+
+    .tile-record__record-fav {
+        grid-area: tile-fav;
+        
+        mat-icon {
+            font-size: 26px;
+        }
+    }
+
+    .mat-icon-color__darkmode {
+        color: $main-text__darkmode;
+    }
+
+    .mat-icon-color__contrast {
+        color: $main-text__contrast;
+    }
+
+    .mat-icon-color__white {
+        color: $main-text__primary;
+    }
+}

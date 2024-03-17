@@ -1,0 +1,30 @@
+@import './../shared.module.scss';
+
+app-offers-list {
+
+    .offer-paginator__white {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .offers-list__container {
+        width: 67.5%;
+    }
+
+    .offer-title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+        .offer-title__filter {
+            width: 300px;
+        }
+
+        .offer-title__osobowe {
+            font-size: 30px;
+            padding-left: 1rem;
+        }
+    }
+}
+

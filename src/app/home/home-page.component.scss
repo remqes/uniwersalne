@@ -1,7 +1,69 @@
 @import './../shared/shared.module.scss';
 
 app-home-page {
+
     .home-page__container {
+        min-height: 400px;
+    }
+
+    .home-page__filter {
+        min-height: 200px;
+    }
+
+    .home-page__container__darker {
+        @extend .home-page__container;
         background-color: $main-background__darker;
+        color: $main-text__darkmode;
+    }
+
+    .home-page__container__white {
+        @extend .home-page__container;
+        background-color: $main-background;
+        color: $main-text__primary;
+    }
+
+    .home-page__container__contrast {
+        @extend .home-page__container;
+        background-color: $main-background__darker;
+        color: $main-text__contrast;
+    }
+
+    .home-page__filter__white {
+        @extend .home-page__filter;
+        background-color: $main-background;
+        color: $main-text__primary;
+    }
+    .home-page__filter__contrast {
+        @extend .home-page__filter;
+        background-color: $main-background__darker;
+        color: $main-text__contrast;
+    }
+
+    .home-page__offers {
+        margin-top: 1rem;
+        padding: 1.5rem;
+        min-height: 200px;
+    }
+
+    .home-page__offers__white {
+        @extend .home-page__offers;
+        background-color: $main-background;
+        color: $main-text__primary;
+    }
+
+    .home-page__offers__darker {
+        @extend .home-page__offers;
+        color: $main-text__darkmode;
+    }
+
+    .home-page__offers__contrast {
+        @extend .home-page__offers;
+        color: $main-text__contrast;
+    }
+
+    .home-page__offers__list {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 }

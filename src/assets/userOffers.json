@@ -1,0 +1,41 @@
+[
+    {
+      "marka": "Toyota",
+      "model": "Corolla",
+      "rok_produkcji": 2018,
+      "przebieg": 45000,
+      "pojemnosc_silnika": 1.6,
+      "moc": 122,
+      "rodzaj_paliwa": "Benzyna",
+      "skrzynia_biegow": "Automatyczna",
+      "informacje_dodatkowe": "Samochód w doskonałym stanie technicznym i wizualnym. Bezwypadkowy. Pierwszy właściciel. Nowe opony letnie.",
+      "cena": 50000,
+      "img": "../../../assets/images/toyotacor.jpeg"
+    },
+    {
+      "marka": "Volkswagen",
+      "model": "Golf",
+      "rok_produkcji": 2017,
+      "przebieg": 60000,
+      "pojemnosc_silnika": 1.4,
+      "moc": 125,
+      "rodzaj_paliwa": "Benzyna",
+      "skrzynia_biegow": "Manualna",
+      "informacje_dodatkowe": "Samochód w bardzo dobrym stanie. Regularnie serwisowany. Historia serwisowa dostępna.",
+      "cena": 45000,
+      "img": "../../../assets/images/vwgolf.jpeg"
+    },
+    {
+      "marka": "BMW",
+      "model": "3 Series",
+      "rok_produkcji": 2019,
+      "przebieg": 30000,
+      "pojemnosc_silnika": 2.0,
+      "moc": 180,
+      "rodzaj_paliwa": "Diesel",
+      "skrzynia_biegow": "Automatyczna",
+      "informacje_dodatkowe": "Samochód używany wyłącznie do jazdy miejskiej. Bardzo oszczędny w paliwie. Bezusterkowy.",
+      "cena": 70000,
+      "img": "../../../assets/images/bmw3.jpeg"
+    }
+  ]

@@ -1,0 +1,131 @@
+@import './../shared.module.scss';
+
+app-filter-container {
+
+    .filter-background {
+        padding: 1.5rem;
+        width: calc(100% - 3rem);
+        min-height: 300px;
+        background-color: transparent;
+    }
+
+    .filter-container__tile {
+        padding: 1rem;
+        width: calc(100% - 2rem);
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "filter-marka filter-marka filter-rokprod filter-rokprod filter-lokalizacja"
+            "filter-cena filter-cena filter-przebieg filter-przebieg filter-stan"
+            "filter-range filter-range . reset-button filter-button";
+
+        .filter-common {
+            width: 95%;
+            margin-bottom: 1rem;
+        }
+
+        .example-full-width {
+            width: 47.5%;
+        }
+
+        .filter-marka {
+            @extend .filter-common;
+            grid-area: filter-marka;
+            
+            display: flex;
+            justify-content: space-between;
+        }
+        .filter-rokprod {
+            @extend .filter-common;
+            grid-area: filter-rokprod;
+            
+            display: flex;
+            justify-content: space-between;
+        }
+        .filter-lokalizacja {
+            @extend .filter-common;
+            grid-area: filter-lokalizacja;
+            display: flex;
+            justify-content: space-between;
+            .filter-lokalizacja__details {
+                width: 95%;
+            }
+        }
+        .filter-cena {
+            @extend .filter-common;
+            grid-area: filter-cena;
+            display: flex;
+            justify-content: space-between;
+        }
+        .filter-przebieg {
+            @extend .filter-common;
+            grid-area: filter-przebieg;
+            display: flex;
+            justify-content: space-between;
+        }
+        .filter-stan {
+            grid-area: filter-stan;
+            @extend .filter-common;
+            display: flex;
+            justify-content: space-between;
+            .filter-stan__details {
+                width: 95%;
+            }
+        }
+        .filter-range {
+            grid-area: filter-range;
+            
+            .filter-slider {
+                width: 93.5%;
+            }
+        }
+        .filter-button {
+            grid-area: filter-button;
+
+            .filter-button {
+                width: 90%;
+                height: 8vh;
+                border: 2px solid black;
+            }
+            .filter-button:hover {
+                background-color: #ececec;
+            }
+        }
+
+        .reset-button {
+            grid-area: reset-button;
+
+            .reset-button {
+                width: 90%;
+                height: 8vh;
+                border: 2px solid black;
+            }
+            .reset-button:hover {
+                background-color: #ececec;
+            }
+        }
+        
+    } 
+
+    .filter-container {
+        width: 100%;
+    }
+
+    .filter-background__container__white {
+        @extend .filter-background;
+        background-color: $main-background;
+        color: $main-text__primary;
+    }
+
+    .filter-background__container__darkmode {
+        @extend .filter-background;
+        color: $main-text__darkmode;
+    }
+
+    .filter-background__container__contrast {
+        @extend .filter-background;
+        color: $main-text__contrast;
+    }
+
+}

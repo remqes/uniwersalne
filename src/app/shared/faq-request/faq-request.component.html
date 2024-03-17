@@ -1,0 +1,57 @@
+<div class="faq-container__white">
+    <div class="faq-container__tile">
+        <div class="faq-title">
+            <span>Wyślij zgłoszenie</span>
+        </div>
+        <div class="faq-email">
+            <mat-form-field class="example-full-width">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+        </div>
+        
+        <div class="faq-imie">
+            <mat-form-field class="example-full-width">
+                <mat-label>Imię i nazwisko</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+        </div>
+        
+        <div class="faq-typ">
+            <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Typ zgłoszenia</mat-label>
+                <mat-select matNativeControl required>
+                  <mat-option value="volvo">Klient biznesowy</mat-option>
+                  <mat-option value="saab">Klient indywidualny</mat-option>
+                  <mat-option value="mercedes">Sprzedający</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="faq-numer">
+            <mat-form-field class="example-full-width">
+                <mat-label>Numer telefonu</mat-label>
+                <input matInput placeholder="" value="">
+            </mat-form-field>
+        </div>
+
+        <div class="faq-opis">
+            <mat-form-field class="example-full-width">
+            <mat-label>Opis zgłoszenia</mat-label>
+            <textarea matInput placeholder="Wpisz tekst..."></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="faq-zalacznik">
+            <span class="faq-zalacznik__text">Załączniki</span>
+            <input #csvInput hidden="true" type="file" onclick="this.value=null" accept=".csv"/>
+            <button mat-flat-button class="choose-button" color="primary" (click)="csvInput.click()">Wybierz plik</button>
+        </div>
+
+        <div class="faq-przycisk">
+            <button type class="choose-button" mat-button>Prześlij zgłoszenie</button>
+        </div>
+        
+
+    </div>
+</div>

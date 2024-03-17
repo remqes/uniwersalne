@@ -1,1 +1,52 @@
-<p>tile-record works!</p>
+<div class="tile-record__background" *ngIf="offerRecord">
+    <div class="tile-record__record-photo">
+        <img class="tile-record__record-photo-photo" [src]="offerRecord.img">
+    </div>
+        <div class="tile-record__record-title">
+            {{ offerRecord.marka }} {{ offerRecord.model }}
+        </div>
+        <div class="tile-record__record-desc">
+            <span class="tile-record__prod-year">
+                <mat-icon aria-hidden="false" aria-label="contrast icon" class="mat-icon-size" fontIcon="calendar_month"></mat-icon>
+                {{ offerRecord.rok_produkcji }}
+            </span>
+            <span class="tile-record__prod-year">
+                <mat-icon aria-hidden="false" aria-label="contrast icon" class="mat-icon-size" fontIcon="add_road"></mat-icon>
+                {{ offerRecord.przebieg }} km
+            </span>
+            <span class="tile-record__prod-year">
+                <mat-icon aria-hidden="false" aria-label="contrast icon" class="mat-icon-size" fontIcon="local_gas_station"></mat-icon>
+                {{ offerRecord.rodzaj_paliwa }}
+            </span>
+            <span class="tile-record__prod-year">
+                <mat-icon aria-hidden="false" aria-label="contrast icon" class="mat-icon-size" fontIcon="local_gas_station"></mat-icon>
+                {{ offerRecord.skrzynia_biegow }}
+            </span>
+        </div>
+        <div class="tile-record__record-additional">
+            <div class="tile-record__record-additional-city">
+                {{ offerRecord.miasto}}
+            </div>
+            <div class="tile-record__record-additional-info">
+                {{ offerRecord.pojemnosc_silnika }}
+                {{ offerRecord.moc }} KM
+                {{ offerRecord.pojemnosc_silnika }}
+            </div>
+        </div> 
+        <div class="tile-record__record-info">
+            {{ offerRecord.informacje_dodatkowe }}
+        </div>
+        <div class="tile-record__record-price">
+            {{ offerRecord.cena }} PLN
+        </div>
+        <div class="tile-record__record-fav" *ngIf="favouriteChecked && isGlobalOffers">
+            <button class="button_visibility__disabled" (click)="changeStatus(offerRecord, false)">
+                <mat-icon aria-hidden="false" aria-label="contrast icon" class="mat-icon-size mat-icon-color__white" fontIcon="favorite"></mat-icon>
+            </button>
+        </div> 
+        <div class="tile-record__record-fav" *ngIf="!favouriteChecked && isGlobalOffers">
+            <button class="button_visibility__disabled" (click)="changeStatus(offerRecord, true)">
+                <mat-icon aria-hidden="false" aria-label="contrast icon" class="mat-icon-size mat-icon-color__white" fontIcon="favorite_border"></mat-icon>
+            </button>
+        </div> 
+</div>

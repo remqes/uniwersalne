@@ -1,0 +1,103 @@
+@import './../shared.module.scss';
+
+app-faq-request {
+
+    .faq_container {
+        min-height: 600px;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .faq-container__white {
+        @extend .faq_container;
+        background-color: $main-background;
+        color: $main-text__primary;
+    }
+
+    .faq-container__dark {
+        @extend .faq_container;
+        background-color: $main-background__darker;
+        color: $main-text__darkmode;
+    }
+
+    .faq-container__contrast {
+        @extend .faq_container;
+        background-color: $main-background__darker;
+        color: $main-text__contrast;
+    }
+
+    .faq-container__tile {
+        width: 50%;
+        min-height: 100px;
+        padding: 2rem;
+
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 10% 15% 15% 25% 15% 15%;
+        grid-template-areas: 
+            "faq-title faq-title faq-title faq-title"
+            "faq-email faq-email faq-imie faq-imie"
+            "faq-typ faq-typ faq-numer faq-numer"
+            "faq-opis faq-opis faq-opis faq-opis"
+            "faq-zalacznik faq-zalacznik . ."
+            ". . faq-przycisk faq-przycisk"
+        ;
+
+        .example-full-width {
+            padding: 1rem;
+            width: 100%;
+        }
+        
+        .faq-title {
+            grid-area: faq-title;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            width: 95%;
+        }
+        .faq-email {
+            grid-area: faq-email;
+            margin-bottom: 1rem;
+            width: 95%;
+        }
+        .faq-imie {
+            grid-area: faq-imie;
+            margin-bottom: 1rem;
+            width: 95%;
+        }
+        .faq-typ {
+            grid-area: faq-typ;
+            margin-bottom: 1rem;
+            width: 95%;
+        }
+        .faq-numer {
+            grid-area: faq-numer;
+            margin-bottom: 1rem;
+            width: 95%;
+        }
+        .faq-opis {
+            grid-area: faq-opis;
+            margin-bottom: 1rem;
+            width: 97.5%;
+        }
+        .faq-zalacznik {
+            grid-area: faq-zalacznik;
+            
+
+            .faq-zalacznik__text {
+                margin-bottom: 1rem;
+            }
+        }
+        .faq-przycisk {
+            grid-area: faq-przycisk;
+        }
+
+        
+
+        .choose-button {
+            width: 90%;
+            height: 10vh;
+            border: 2px solid black;
+        }
+    }
+}

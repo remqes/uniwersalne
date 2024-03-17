@@ -1,0 +1,182 @@
+@import './../shared.module.scss';
+
+app-account-view {
+
+    .account-view {
+        .account_view__body {
+            display: flex;
+            flex-direction: column;
+            min-height: 700px;
+
+            .account_view__title {
+                padding: 1rem;
+                font-size: 24px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .account_view__buttons {
+                
+                display: flex;
+                justify-content: center;
+
+                .buttons-settings {
+                    width: 100%;
+                    height: 10vh;
+                    border: 2px solid black;
+                    display: flex;
+                    justify-content: center;
+                    margin: 1rem;
+                }
+
+                .account_view__buttons_display {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 1rem;
+                    width: 50%;
+
+                    .button-size {
+                        width: 100%;
+                    }
+
+                    .account_view__buttons-offers {
+                        @extend .buttons-settings;
+                        width: 100%;
+                    }
+                    .account_view__buttons-offers_active {
+                        @extend .account_view__buttons-offers;
+                        background-color: #b4b4b4;
+                    }
+                    .account_view__buttons-observed {
+                        @extend .buttons-settings;
+                    }
+                    .account_view__buttons-observed_active {
+                        @extend .account_view__buttons-observed;
+                        background-color: #b4b4b4;
+                    }
+                    .account_view__buttons-settings {
+                        @extend .buttons-settings;
+                    }
+                    .account_view__buttons-settings_active {
+                        @extend .account_view__buttons-settings;
+                        background-color: #b4b4b4;
+                    }
+                }
+            }
+
+            .account_view__view {
+                display: flex;
+                justify-content: center;
+
+                .account_view__view-offers {
+                    min-height: 100px;
+                    width: 100%;
+
+                    .view-offers {
+                        padding: 2rem;
+                        .home-page__offers__list {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                        }
+                    }
+                }
+
+                .account_view__view-observed {
+                    min-height: 200px;
+                    width: 100%;
+                        
+                    .view-observed {
+                        padding: 2rem;
+                        .home-page__offers__list {
+                            width: 100%;
+                            display: flex;
+                            justify-content: center;
+                        }
+                    }
+                }
+
+                .home-page__offers__list-text {
+                    padding: 2rem;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .account_view__view-settings {
+                    min-height: 200px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+
+                    .change-password {
+                        width: 500px;
+                        height: 400px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        .change-password-details {
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        .register-login-field {
+                            padding: 1rem;
+                            display: flex;
+                            justify-content: center;
+                            flex-direction: column;
+                        }
+
+                        .register-password-field {
+                            padding: 1rem;
+                            display: flex;
+                            justify-content: center;
+                            flex-direction: column;
+                        }
+
+                        .confirm-password {
+                            padding: 1rem;
+                            display: flex;
+                            justify-content: center;
+                            border: 2px solid black;
+                            .confirm-password-detials {
+                                width: 90%;
+                                height: 4vh;
+                            }
+                        }
+                        .confirm-password:hover {
+                            background-color: #ececec;
+                        }
+
+                        .logout-button {
+                            padding: 1rem;
+                            display: flex;
+                            justify-content: center;
+                            border: 2px solid black;
+                            margin-top: 4rem;
+                            .logout-button-detials {
+                                width: 90%;
+                                height: 6vh;
+                            }
+                        }
+                        .logout-button:hover {
+                            background-color: #ececec;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .account_view__white {
+        @extend .account-view;
+        background-color: $main-background;
+        color: $main-text__primary;
+    }
+    .account_view__contrast {
+        @extend .account-view;
+        background-color: $main-background__darker;
+        color: $main-text__contrast;
+    }
+}

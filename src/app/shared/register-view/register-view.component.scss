@@ -1,0 +1,160 @@
+@import './../shared.module.scss';
+
+app-register-view {
+
+    .register-background {
+        display: flex;
+        justify-content: center;
+        min-height: 700px;
+        padding-top: 2rem;
+    }
+
+    .register-background__white {
+        @extend .register-background;
+        background-color: $main-background;
+        color: $main-text__primary;
+    }
+
+    .register-background__dark {
+        @extend .register-background;
+        background-color: $main-background__darker;
+        color: $main-text__darkmode;
+    }
+
+    .register-background__contrast {
+        @extend .register-background;
+        background-color: $main-background__darker;
+        color: $main-text__contrast;
+    }
+
+    .mat-divider {
+        margin-right: 5%;
+        margin-left: 5%;
+        width: 90%;
+        border: 2px solid black;
+        border-top-color: black;
+        
+    }
+
+    .register-view {
+        border: 2px solid black;
+        width: 600px;
+        height: 500px;
+
+        .register-divider {
+            grid-area: 'register-divider';
+        }
+
+        .register-divider-2 {
+            grid-area: 'register-divider-2';
+        }
+
+        .login-field {
+            grid-area: 'login-field';
+            display: flex;
+            justify-content: center;
+            min-height: 70px;
+            margin: 1rem;
+
+            .login-button {
+                font-size: 24px;
+                width: 100%;
+            }
+            .login-button:hover {
+                background-color: #ececec;
+            }
+        }
+
+        .register-field {
+            grid-area: register-field;
+            display: flex;
+            justify-content: center;
+            min-height: 70px;
+            margin: 1rem;
+
+            .register-button {
+                font-size: 24px;
+                width: 100%;
+            }
+            .register-button:hover {
+                background-color: #ececec;
+            }
+        }
+
+        .register-divider {
+            grid-area: register-divider;
+        }
+
+        .register-email-field {
+            grid-area: email-field;
+            width: 100%;
+            padding: 3rem;
+            display: grid;
+            justify-content: center;
+            .email-field {
+                width: 100%;
+            }
+        }
+    
+        .register-password-field {
+            grid-area: password-field;
+            padding: 3rem;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .button-area {
+                display: flex;
+                justify-content: center;
+
+                .forgot-button {
+                    height: 5vh;
+                    border-radius: 10px;
+                    width: 50%;
+                }
+                .forgot-button:hover {
+                    background-color: #ececec;
+                }
+            }
+        }
+
+        .register-login-field {
+            grid-area: password-field2;
+            padding: 3rem;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+    
+        .register-login-button {
+            grid-area: login-button;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            .login-button {
+                grid-area: 'register-buttons';
+                width: 90%;
+                height: 12vh;
+                border-radius: 10px;
+            }
+            .login-button:hover {
+                background-color: #ececec;
+            }
+        }
+
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 20% 5% 25% 25% 25%;
+        grid-template-areas: 
+            "login-field register-field"
+            "register-divider register-divider"
+            "password-field2 password-field2"
+            "password-field password-field"
+            "login-button login-button";
+    }
+
+}

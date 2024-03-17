@@ -1,6 +1,40 @@
-<div class="header-background__white header-font__medium">
-    <div class="header-logo">LOGO</div>
-    <div class="header-account">TWOJE KONTO</div>
-    <div class="header-faq">FAQ</div>
-    <div class="header-more">MORE<i class="header-more__icon"></i></div>
+<div 
+    [ngClass]="isContrast ? 'header-background__contrast' : 'header-background__white'"
+    class="header-font__medium">
+    <div class="header-logo">
+        <button class="button_visibility__disabled" [routerLink]="['/home']"> 
+            <span [ngClass]="isContrast ? 'span__contrast' : 'span__white'">
+                LOGO
+            </span>
+        </button>
+    </div>
+    <div class="header-login">
+        <button class="button_visibility__disabled" [routerLink]="['/login']"> 
+            LOGIN
+        </button>
+    </div>
+    <div class="header-account">
+        <button class="button_visibility__disabled" [routerLink]="['/account']"> 
+            TWOJE KONTO
+        </button>
+    </div>
+    <div class="header-faq">
+        <div class="header-account">
+            <button class="button_visibility__disabled" [routerLink]="['/faq']"> 
+                FAQ
+            </button>
+        </div>
+    </div>
+    <div class="header-more">
+        <button class="header-change__contrast button_visibility__disabled" (click)="changeContrast()">
+            <mat-icon aria-hidden="false" aria-label="contrast icon" fontIcon="contrast"></mat-icon>
+        </button>
+        <button class="header_change__fontToSmall button_visibility__disabled" (click)="fontDecrease()">
+            <mat-icon aria-hidden="false" aria-label="contrast icon" fontIcon="text_decrease"></mat-icon>
+        </button>
+        <button class="header_change__fontToLarge button_visibility__disabled" (click)="fontIncrease()">
+            <mat-icon aria-hidden="false" aria-label="contrast icon" fontIcon="text_increase"></mat-icon>
+        </button>
+    </div>
 </div>
+<mat-divider></mat-divider>

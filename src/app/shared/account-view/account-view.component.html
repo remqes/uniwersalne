@@ -1,0 +1,77 @@
+<div class="account_view__white">
+    <div class="account_view__body">
+        <div class="account_view__title">
+            <span aria-label="Your account">Twoje konto</span>
+        </div>
+        <div class="account_view__buttons">
+            <div class="account_view__buttons_display">
+                <div [ngClass]="activeField === 'offers' ? 'account_view__buttons-offers_active' : 'account_view__buttons-offers'">
+                    <button class=" button_visibility__disabled button-size" (click)="activateView('offers')">
+                        <span aria-label="Go to the view of your offers">Twoje ogłoszenia</span>
+                    </button>
+                </div>
+                <div [ngClass]="activeField === 'observed' ? 'account_view__buttons-observed_active' : 'account_view__buttons-observed'">
+                    <button class="button_visibility__disabled button-size" (click)="activateView('observed')">
+                        <span aria-label="Go to the view of observed offers">Obserwowane</span>
+                    </button>
+                </div>
+                <div [ngClass]="activeField === 'settings' ? 'account_view__buttons-settings_active' : 'account_view__buttons-settings'">
+                    <button class="button_visibility__disabled button-size" (click)="activateView('settings')">
+                        <span aria-label="Go to the view of settings">Ustawienia</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="account_view__view">
+            <div class="account_view__view-offers" *ngIf="activeField === 'offers'">
+                <div class="view-offers" *ngIf="getUserOffers$ | async; else noOffers">
+                    <app-offers-list
+                        class="home-page__offers__list"
+                        [filteredQuery$]="getUserOffers$"
+                        [isGlobalOffers]="false"
+                    ></app-offers-list>
+                </div>
+                <ng-template #noOffers class="home-page__offers__list">
+                    <span>Aktualnie nie masz żadnego aktywnego ogłoszenia</span>
+                </ng-template>
+            </div>
+            <div class="account_view__view-observed" *ngIf="activeField === 'observed'">
+                <div class="view-observed" *ngIf="isFavInStorage; else noObserved">
+                    <app-offers-list
+                    class="home-page__offers__list"
+                    [isGlobalOffers]="false"
+                    [observed]="true"
+                    ></app-offers-list>
+                </div>
+                <ng-template #noObserved class="home-page__offers__list">
+                    <span class="home-page__offers__list-text">Aktualnie nie obserwujesz żadnego ogłoszenia</span>
+                </ng-template>
+            </div>
+            <div class="account_view__view-settings" *ngIf="activeField === 'settings'">
+                <div class="change-password">
+                    <div class="register-login-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label aria-label="Email address">Aktualne hasło</mat-label>
+                            <input type="email" matInput value="">
+                        </mat-form-field>
+                    </div>
+                    <div class="register-password-field">
+                        <mat-form-field class="example-full-width">
+                            <mat-label aria-label="Password">Nowe hasło</mat-label>
+                            <input type="password" matInput value="">
+                        </mat-form-field>
+                    </div>
+                    <div class="confirm-password">
+                        <button mat-button class="button_visibility__disabled confirm-password-details">
+                            <span aria-label="Change password">Zmień hasło</span>
+                        </button>
+                    </div>
+                    <div class="logout-button">
+                        <button mat-button class="button_visibility__disabled logout-button-details">
+                            <span aria-label="Logout">Wyloguj się</span>
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

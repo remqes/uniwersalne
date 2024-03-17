@@ -1,1 +1,112 @@
-<p>filter-container works!</p>
+<div class="filter-container">
+    <form [formGroup]="filterGroup" (ngSubmit)="refetchData()">
+        <div class="filter-container__tile">
+            <div class="filter-marka">
+                <ng-container>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Marka</mat-label>
+                        <mat-select formControlName="marka">
+                            <mat-option value="audi">Audi</mat-option>
+                            <mat-option value="bmw">BMW</mat-option>
+                            <mat-option value="ford">Ford</mat-option>
+                            <mat-option value="honda">Honda</mat-option>
+                            <mat-option value="hyundai">Hyundai</mat-option>
+                            <mat-option value="kia">Kia</mat-option>
+                            <mat-option value="mercedes-benz">Mercedes-Benz</mat-option>
+                            <mat-option value="nissan">Nissan</mat-option>
+                            <mat-option value="opel">Opel</mat-option>
+                            <mat-option value="renault">Renault</mat-option>
+                            <mat-option value="toyota">Toyota</mat-option>
+                            <mat-option value="volkswagen">Volkswagen</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Model</mat-label>
+                        <mat-select formControlName="model" [disabled]="!f.marka.value">
+                            <mat-option *ngIf="f.marka.value === 'audi'" value="a4">A4</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'bmw'" value="3 Series">3 Series</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'ford'" value="focus">Focus</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'honda'" value="civic">Civic</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'hyundai'" value="i30">i30</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'kia'" value="sportage">Sportage</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'mercedes-benz'" value="a-class">A-Class</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'mercedes-benz'" value="c-class">C-Class</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'opel'" value="astra">Astra</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'nissan'" value="qashqai">Qashqai</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'renault'" value="megane">Megane</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'toyota'" value="corolla">Corolla</mat-option>
+                            <mat-option *ngIf="f.marka.value === 'volkswagen'" value="golf">Golf</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </ng-container>  
+            </div>
+            <div class="filter-rokprod">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Rok produkcji min</mat-label>
+                    <input matInput min="1980" max="2024" formControlName="rokprodMin">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Rok produkcji max</mat-label>
+                    <input matInput min="1980" max="2024" formControlName="rokprodMax">
+                </mat-form-field>
+            </div>
+            <div class="filter-lokalizacja">
+                <mat-form-field appearance="fill" class="filter-lokalizacja__details">
+                    <mat-label>Lokalizacja</mat-label>
+                    <input matInput formControlName="lokalizacja">
+                </mat-form-field>
+            </div>
+            <div class="filter-cena">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Cena min</mat-label>
+                    <input [min]="0" [max]="f.cenaMax.value" 
+                        [ngModel]="filterGroup.get('cenaMin')?.value"
+                        matInput formControlName="cenaMin">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Cena max</mat-label>
+                    <input [min]="f.cenaMin.value" max="1000000"
+                        [ngModel]="filterGroup.get('cenaMax')?.value"
+                        matInput formControlName="cenaMax">
+                </mat-form-field>
+            </div>
+            <div class="filter-przebieg">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Przebieg min</mat-label>
+                    <input matInput min="0" max="1000000" formControlName="przebiegMin">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Przebieg max</mat-label>
+                    <input matInput min="0" max="1000000" formControlName="przebiegMax">
+                </mat-form-field>
+            </div>
+            <div class="filter-stan">
+                <mat-form-field appearance="fill" class="filter-stan__details">
+                    <mat-label>Stan pojazdu</mat-label>
+                    <mat-select multiple formControlName="stan">
+                      <mat-option value="nieuszkodzony">nieuszkodzony</mat-option>
+                      <mat-option value="uszkodzony">uszkodzony</mat-option>
+                      <mat-option value="dowolny">dowolny</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="filter-range">
+                <mat-slider min="0" max="100000" class="filter-slider">
+                    <input formControlName="cenaMin" matSliderStartThumb>
+                    <input formControlName="cenaMax" matSliderEndThumb>
+                </mat-slider>
+            </div>
+            <div class="reset-button example-button-row">
+                <button (click)="resetFilter()" class="button_visibility__disabled reset-button" mat-button>
+                    Zresetuj
+                </button>
+            </div>
+            <div class="filter-button example-button-row">
+                <button type="submit" class="button_visibility__disabled filter-button" mat-button>
+                    Wyszukaj
+                </button>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+    </form>
+</div>

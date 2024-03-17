@@ -1,0 +1,72 @@
+<div class="offers-list__container">
+    <div class="offer-fileds" *ngIf="filteredQuery$ | async as query">
+        <div class="offer-title">
+            <span class="offer-title__osobowe">Samochody osobowe ({{ query.length }})</span>
+            <mat-form-field appearance="fill" class="offer-title__filter" *ngIf="query.length !== 0">
+                <mat-label>Sortuj</mat-label>
+                <mat-select disabled="true">
+                    <mat-option value="Polecane">
+                        Polecane
+                    </mat-option>
+                    <mat-option value="Najnowsze">
+                        Najnowsze
+                    </mat-option>
+                    <mat-option value="Cena: od najniższej">
+                        Cena: od najniższej
+                    </mat-option>
+                    <mat-option value="Cena: od najwyższej">
+                        Cena: od najwyższej
+                    </mat-option>
+                    <mat-option value="Przebieg: od najmniejszego">
+                        Przebieg: od najmniejszego
+                    </mat-option>
+                    <mat-option value="Przebieg: od największego">
+                        Przebieg: od największego
+                    </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="offer-field__white" *ngFor="let record of query; let index = index">
+            <app-tile-record
+                [isGlobalOffers]="isGlobalOffers"
+                [offerRecord]="record"
+            ></app-tile-record>
+        </div>
+    </div>
+    <div *ngIf="observed" class="offer-fileds">
+        <div class="offer-title" *ngIf="observedLocalStorage.length !== 0">
+            <span class="offer-title__osobowe">
+                Samochody osobowe ({{ observedLocalStorage.length }})</span>
+            <mat-form-field appearance="fill" class="offer-title__filter">
+                <mat-label>Sortuj</mat-label>
+                <mat-select name="food">
+                    <mat-option value="Polecane">
+                        Polecane
+                    </mat-option>
+                    <mat-option value="Najnowsze">
+                        Najnowsze
+                    </mat-option>
+                    <mat-option value="Cena: od najniższej">
+                        Cena: od najniższej
+                    </mat-option>
+                    <mat-option value="Cena: od najwyższej">
+                        Cena: od najwyższej
+                    </mat-option>
+                    <mat-option value="Przebieg: od najmniejszego">
+                        Przebieg: od najmniejszego
+                    </mat-option>
+                    <mat-option value="Przebieg: od największego">
+                        Przebieg: od największego
+                    </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="offer-field__white" *ngFor="let record of observedLocalStorage; let index = index">
+            <app-tile-record
+                [isGlobalOffers]="true"
+                [offerRecord]="record"
+            ></app-tile-record>
+        </div>
+    </div>
+    
+</div>

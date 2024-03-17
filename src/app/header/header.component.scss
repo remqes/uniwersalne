@@ -1,4 +1,5 @@
 @import './../shared/shared.module.scss';
+@import './../shared/shared-components.module.scss';
 
 app-header {
 
@@ -26,19 +27,47 @@ app-header {
         grid-area: header-faq;
     }
 
+    .header-login {
+        @extend .header-common__fields;
+        grid-area: header-login;
+    }
+
     .header-more {
         @extend .header-common__fields;
         grid-area: header-more;
+
+        display: grid;
+        background-color: transparent;
+        grid-template-columns: 33% 33% 33%;
+        grid-template-areas: 
+            "header-change__contrast header-change__fontToSmall header-change__fontToLarge";
+        grid-template-rows: auto;
+
+
+        &.header-change__contrast {
+            @extend .header-common__fields;
+            grid-area: header-change__contrast;
+        }
+
+        &.header_change__fontToSmall {
+            @extend .header-common__fields;
+            grid-area: header-change__fontToSmall;
+        }
+
+        &.header_change__fontToLarge {
+            @extend .header-common__fields;
+            grid-area: header-change__fontToLarge;
+        }
     }
 
     .header-common {
         display: grid;
         width: calc(100% - 2rem);
         padding: 1rem;
-        grid-template-columns: 75% 11% 7% 7%;
+        grid-template-columns: 66% 8% 10% 8% 8%;
         grid-template-rows: auto;
         grid-template-areas: 
-            "header-logo header-account header-faq header-more";
+            "header-logo header-login header-account header-faq header-more"
    }
 
     .header-background__white {
@@ -58,6 +87,8 @@ app-header {
         background-color: $main-background__darker;
         color: $main-text__contrast;
     }
+
+    
 
     .header-font__small {
         font-size: $text-font__small;
