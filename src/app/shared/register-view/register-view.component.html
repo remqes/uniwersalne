@@ -1,45 +1,52 @@
-<div class="register-background__white">
+<div [ngClass]="isContrast ? 'register-background__contrast': 'register-background__white'">
     <div class="register-view">
         <div class="login-field">
-            <button class="login-button button_visibility__disabled" (click)="setView('login')">
+            <button class="button_visibility__disabled" (click)="setView('login')"
+            [ngClass]="isContrast ? 'login-button_contrast' : 'login-button_white'">
                 <span aria-label="Swtich to login view">Zaloguj się</span>
             </button>
         </div>
         <div class="register-field">
-            <button class="register-button button_visibility__disabled" (click)="setView('register')">
+            <button class="register-button button_visibility__disabled" (click)="setView('register')"
+            [ngClass]="isContrast ? 'register-button_contrast' : 'register-button_white'">
                 <span aria-label="Switch to register view">Zarejestruj się</span>
             </button>
         </div>
         <div class="register-divider">
-            <mat-divider></mat-divider>
+            <mat-divider [ngClass]="isContrast ? '' : ''"></mat-divider>
         </div>
-        <div class="register-login-field">
-            <mat-form-field class="example-full-width">
-                <mat-label aria-label="Email address">Email</mat-label>
-                <input type="email" matInput value="">
-            </mat-form-field>
-        </div>
-        <div class="register-password-field">
-            <mat-form-field class="example-full-width">
-                <mat-label aria-label="Password">Hasło</mat-label>
-                <input type="password" matInput value="">
-            </mat-form-field>
-            <div class="button-area" *ngIf="isLoginView">
-                <button aria-label="Forgot password" 
-                    mat-button class="button_visibility__disabled forgot-button" 
-                    [routerLink]="['/forgot-password']">
-                    <span>Zapomniałeś hasła?</span>
+        <div [ngClass]="isContrast ? 'register-login-field_contrast' : 'register-login-field' ">
+                <mat-form-field class="example-full-width">
+                    <mat-label aria-label="Email address">Email</mat-label>
+                    <input type="email" id="email" matInput value="">
+                </mat-form-field>
+            </div>
+            <div [ngClass]="isContrast ? 'register-password-field_contrast' : 'register-password-field' ">
+                <mat-form-field class="example-full-width">
+                    <mat-label aria-label="Password" >Hasło</mat-label>
+                    <input type="password" id="password" matInput value="">
+                </mat-form-field>
+                <div class="button-area" *ngIf="isLoginView">
+                    <button aria-label="Forgot password" 
+                        [ngClass]="isContrast ? 'forgot-button_contrast' : 'forgot-button_white'"
+                        mat-button class="button_visibility__disabled forgot-button" 
+                        [routerLink]="['/home']">
+                        <span>Zapomniałeś hasła?</span>
+                    </button>
+                </div>
+            </div>
+            <div [ngClass]="isContrast ? 'register-login-button_contrast' : 'register-login-button' ">
+                <button
+                    [ngClass]="isContrast ? 'login-button_contrast' : 'login-button'"
+                    mat-button class="button_visibility__disabled" *ngIf="isLoginView"
+                    (click)="login()">
+                    <span aria-label="Login">Zaloguj się</span>
+                </button>
+                <button mat-button (click)="login()"
+                    [ngClass]="isContrast ? 'login-button_contrast' : 'login-button'"
+                    class="button_visibility__disabled login-button" *ngIf="!isLoginView">
+                    <span aria-label="Register">Zarejestruj się</span>
                 </button>
             </div>
-        </div>
-        <div class="register-login-button">
-            <button mat-button class="button_visibility__disabled login-button" *ngIf="isLoginView"
-                (click)="login()">
-                <span aria-label="Login">Zaloguj się</span>
-            </button>
-            <button mat-button class="button_visibility__disabled login-button" *ngIf="!isLoginView">
-                <span aria-label="Register">Zarejestruj się</span>
-            </button>
-        </div>
     </div>
 </div>

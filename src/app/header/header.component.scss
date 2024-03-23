@@ -15,6 +15,15 @@ app-header {
         grid-area: header-logo;
         padding-left: 1rem;
         justify-content: left;
+
+
+        .span__contrast-header-logo {
+            @extend .span_contrast;
+        }
+
+        .span__white-header-logo {
+            @extend .span_white;
+        }
     }
 
     .header-account {
@@ -64,7 +73,7 @@ app-header {
         display: grid;
         width: calc(100% - 2rem);
         padding: 1rem;
-        grid-template-columns: 66% 8% 10% 8% 8%;
+        grid-template-columns: 64% 8% 10% 8% 10%;
         grid-template-rows: auto;
         grid-template-areas: 
             "header-logo header-login header-account header-faq header-more"
@@ -100,5 +109,12 @@ app-header {
 
     .header-font__large {
         font-size: $text-font__large;
+    }
+
+    .is__contrast {
+        color: $main-text__contrast;
+    }
+    .is__white {
+        color: $main-text__primary;
     }
 }

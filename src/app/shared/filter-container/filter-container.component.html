@@ -1,7 +1,7 @@
 <div class="filter-container">
     <form [formGroup]="filterGroup" (ngSubmit)="refetchData()">
         <div class="filter-container__tile">
-            <div class="filter-marka">
+            <div [ngClass]="isContrast ? 'filter-marka_contrast' : 'filter-marka'">
                 <ng-container>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Marka</mat-label>
@@ -40,7 +40,7 @@
                     </mat-form-field>
                 </ng-container>  
             </div>
-            <div class="filter-rokprod">
+            <div [ngClass]="isContrast ? 'filter-rokprod_contrast' : 'filter-rokprod'">
                 <mat-form-field class="example-full-width">
                     <mat-label>Rok produkcji min</mat-label>
                     <input matInput min="1980" max="2024" formControlName="rokprodMin">
@@ -50,13 +50,13 @@
                     <input matInput min="1980" max="2024" formControlName="rokprodMax">
                 </mat-form-field>
             </div>
-            <div class="filter-lokalizacja">
+            <div [ngClass]="isContrast ? 'filter-lokalizacja_contrast' : 'filter-lokalizacja'">
                 <mat-form-field appearance="fill" class="filter-lokalizacja__details">
                     <mat-label>Lokalizacja</mat-label>
                     <input matInput formControlName="lokalizacja">
                 </mat-form-field>
             </div>
-            <div class="filter-cena">
+            <div [ngClass]="isContrast ? 'filter-cena_contrast' : 'filter-cena'">
                 <mat-form-field class="example-full-width">
                     <mat-label>Cena min</mat-label>
                     <input [min]="0" [max]="f.cenaMax.value" 
@@ -70,7 +70,7 @@
                         matInput formControlName="cenaMax">
                 </mat-form-field>
             </div>
-            <div class="filter-przebieg">
+            <div [ngClass]="isContrast ? 'filter-przebieg_contrast' : 'filter-przebieg'">
                 <mat-form-field class="example-full-width">
                     <mat-label>Przebieg min</mat-label>
                     <input matInput min="0" max="1000000" formControlName="przebiegMin">
@@ -80,7 +80,7 @@
                     <input matInput min="0" max="1000000" formControlName="przebiegMax">
                 </mat-form-field>
             </div>
-            <div class="filter-stan">
+            <div [ngClass]="isContrast ? 'filter-stan_contrast' : 'filter-stan'">
                 <mat-form-field appearance="fill" class="filter-stan__details">
                     <mat-label>Stan pojazdu</mat-label>
                     <mat-select multiple formControlName="stan">
@@ -96,12 +96,14 @@
                     <input formControlName="cenaMax" matSliderEndThumb>
                 </mat-slider>
             </div>
-            <div class="reset-button example-button-row">
-                <button (click)="resetFilter()" class="button_visibility__disabled reset-button" mat-button>
+            <div class="example-button-row"
+            [ngClass]="isContrast ? 'reset-button_contrast' : 'reset-button_white'">
+                <button (click)="resetFilter()" class="button_visibility__disabled reset-button mat-button">
                     Zresetuj
                 </button>
             </div>
-            <div class="filter-button example-button-row">
+            <div class="example-button-row"
+                [ngClass]="isContrast ? 'filter-button_contrast' : 'filter-button_white'">
                 <button type="submit" class="button_visibility__disabled filter-button" mat-button>
                     Wyszukaj
                 </button>

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, catchError, map, tap, Observable } from 'rxjs';
 import { JSON_PATH } from '../shared/types';
+import { Router } from '@angular/router';
 
 type FavOffers = {
   key: string;
@@ -51,6 +52,7 @@ export class StorageService {
 
   constructor(
     private http: HttpClient,
+    private router: Router,
   ) { }
 
   getUserOffers() {
@@ -72,6 +74,25 @@ export class StorageService {
         return EMPTY;
       })
     );
+  }
+
+  switchContrast(item: boolean): boolean {
+    if (!localStorage.getItem('contrast')) {
+      localStorage.setItem('contrast', 'true');
+    } else {
+      localStorage.removeItem('contrast');
+    }
+    return item = !item;
+    
+  }
+
+  switchFontSize(size: string) {
+      if (size === 'up') {
+        localStorage.setItem('font', 'small');
+      }
+      if (size === 'down') {
+        localStorage.setItem('font', 'big');
+      }
   }
 
 }

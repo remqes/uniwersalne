@@ -1,12 +1,39 @@
 @import './../shared.module.scss';
 
 app-account-view {
+    .contrast_inputs {
+        .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+            background-color: transparent;
+            border: 1px solid $main-text__contrast;
+        }
+        .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+            border-bottom-color: transparent;
+        }
+        .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+            color: $main-text__contrast;
+        }
+        .mat-mdc-option {
+            background: $main-background__darker;
+        }
+        .mat-mdc-select-arrow svg {
+            color: $main-text__contrast;
+        }
+        .mat-mdc-select-value-text {
+            color: $main-text__contrast;
+        }
+        .cdk-overlay-pane:not(.mat-mdc-select-panel-above) .mdc-menu-surface.mat-mdc-select-panel {
+            color: $main-text__contrast;
+        }
+        .mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input {
+            color: $main-text__contrast;
+        }
+    }
 
     .account-view {
         .account_view__body {
             display: flex;
             flex-direction: column;
-            min-height: 700px;
+            min-height: 900px;
 
             .account_view__title {
                 padding: 1rem;
@@ -44,27 +71,56 @@ app-account-view {
                         @extend .buttons-settings;
                         width: 100%;
                     }
+                    .account_view__buttons-offers_contrast {
+                        @extend .buttons-settings;
+                        width: 100%;
+                        border: 1px solid $main-text__contrast;
+                    }
                     .account_view__buttons-offers_active {
                         @extend .account_view__buttons-offers;
                         background-color: #b4b4b4;
                     }
+                    .account_view__buttons-offers_active_contrast {
+                        @extend .account_view__buttons-offers;
+                        background-color: $main-text__contrast;
+                    }
                     .account_view__buttons-observed {
                         @extend .buttons-settings;
+                    }
+                    .account_view__buttons-observed_contrast {
+                        @extend .buttons-settings;
+                        background-color: transparent;
+                        border: 1px solid $main-text__contrast;
                     }
                     .account_view__buttons-observed_active {
                         @extend .account_view__buttons-observed;
                         background-color: #b4b4b4;
                     }
+                    .account_view__buttons-observed_active_contrast {
+                        @extend .account_view__buttons-observed;
+                        color: $main-background__darker;
+                        background-color: $main-text__contrast;
+                    }
                     .account_view__buttons-settings {
                         @extend .buttons-settings;
+                    }
+                    .account_view__buttons-settings_contrast {
+                        @extend .buttons-settings;
+                        border: 1px solid $main-text__contrast;
+                        color: $main-text__contrast;
                     }
                     .account_view__buttons-settings_active {
                         @extend .account_view__buttons-settings;
                         background-color: #b4b4b4;
                     }
+                    .account_view__buttons-settings_active_contrast {
+                        @extend .account_view__buttons-settings;
+                        background-color: $main-text__contrast;
+                    }
                 }
             }
 
+            
             .account_view__view {
                 display: flex;
                 justify-content: center;
@@ -139,7 +195,7 @@ app-account-view {
                             padding: 1rem;
                             display: flex;
                             justify-content: center;
-                            border: 2px solid black;
+                            border: 2px solid $main-background__darker;
                             .confirm-password-detials {
                                 width: 90%;
                                 height: 4vh;
@@ -149,11 +205,28 @@ app-account-view {
                             background-color: #ececec;
                         }
 
+                        .confirm-password_contrast {
+                            @extend .contrast_inputs;
+                            padding: 1rem;
+                            display: flex;
+                            justify-content: center;
+                            border: 2px solid $main-text__contrast;
+                            .confirm-password-detials {
+                                width: 90%;
+                                height: 4vh;
+                                color: $main-text__contrast;
+                            }
+                        }
+                        .confirm-password_contrast:hover {
+                            background-color: $main-text__contrast;
+                            color: $main-background__darker;
+                        }
+
                         .logout-button {
                             padding: 1rem;
                             display: flex;
                             justify-content: center;
-                            border: 2px solid black;
+                            border: 2px solid $main-background__darker;
                             margin-top: 4rem;
                             .logout-button-detials {
                                 width: 90%;
@@ -163,6 +236,29 @@ app-account-view {
                         .logout-button:hover {
                             background-color: #ececec;
                         }
+
+                        .logout-button_contrast {
+                            @extend .contrast_inputs;
+                            padding: 1rem;
+                            display: flex;
+                            justify-content: center;
+                            border: 2px solid $main-text__contrast;
+                            color: $main-text__contrast;
+                            margin-top: 4rem;
+                            .logout-button-detials {
+                                width: 90%;
+                                height: 6vh;
+                                color: $main-text__contrast;
+                            }
+                        }
+                        .logout-button_contrast:hover {
+                            background-color: $main-text__contrast;
+                            color: $main-background__darker;
+                        }
+                    }
+                    .change-password_contrast {
+                        @extend .change-password;
+                        @extend .contrast_inputs;
                     }
                 }
             }

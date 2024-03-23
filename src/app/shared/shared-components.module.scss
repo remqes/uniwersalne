@@ -5,20 +5,30 @@
 @import './faq-request/faq-request.component.scss';
 @import './account-view/account-view.component.scss';
 
+@import './shared.module.scss';
+
 .button_visibility__disabled__white {
-    background-color: transparent;
-    border: none;
-    padding-left: 15px;
-    padding-right: 15px;
+    @extend .button_visibility__disabled;
     color: $main-text__primary;
 }
 
 .button_visibility__disabled__contrast {
-    background-color: transparent;
-    border: none;
-    padding-left: 15px;
-    padding-right: 15px;
+    @extend .button_visibility__disabled;
     color: $main-text__contrast;
+}
+
+.button_visibility__contrast_register {
+    @extend .button_visibility__disabled;
+    color: $main-text__contrast;
+    width: 100%;
+    height: 54px;
+}
+.button_visibility__contrast_register:hover {
+    color: $main-background__darker;
+}
+
+.confirm-password_contrast:hover {
+    color: $main-background__darker;
 }
 
 .button_visibility__disabled {
@@ -26,4 +36,13 @@
     border: none;
     padding-left: 15px;
     padding-right: 15px;
+    cursor: pointer;
+}
+
+.span_contrast {
+    color: $main-text__contrast;
+}
+
+.span_white {
+    color: $main-text__primary;
 }

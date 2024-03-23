@@ -28,6 +28,8 @@ app-home-page {
         color: $main-text__contrast;
     }
 
+    
+
     .home-page__filter__white {
         @extend .home-page__filter;
         background-color: $main-background;

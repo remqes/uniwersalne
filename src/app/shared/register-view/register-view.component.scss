@@ -2,10 +2,38 @@
 
 app-register-view {
 
+    .contrast_inputs {
+        .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+            background-color: transparent;
+            border: 1px solid $main-text__contrast;
+        }
+        .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+            border-bottom-color: transparent;
+        }
+        .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+            color: $main-text__contrast;
+        }
+        .mat-mdc-option {
+            background: $main-background__darker;
+        }
+        .mat-mdc-select-arrow svg {
+            color: $main-text__contrast;
+        }
+        .mat-mdc-select-value-text {
+            color: $main-text__contrast;
+        }
+        .cdk-overlay-pane:not(.mat-mdc-select-panel-above) .mdc-menu-surface.mat-mdc-select-panel {
+            color: $main-text__contrast;
+        }
+        .mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input {
+            color: $main-text__contrast;
+        }
+    }
+
     .register-background {
         display: flex;
         justify-content: center;
-        min-height: 700px;
+        min-height: 900px;
         padding-top: 2rem;
     }
 
@@ -31,15 +59,20 @@ app-register-view {
         margin-right: 5%;
         margin-left: 5%;
         width: 90%;
-        border: 2px solid black;
-        border-top-color: black;
-        
+        border: 2px solid $main-text__primary;
+        border-top-color: $main-text__primary;
     }
 
+    ::ng-deep .mat-mdc-form-field-focus-overlay {
+        background-color: rgb(177, 140, 81) !important;
+      }
+
     .register-view {
-        border: 2px solid black;
+        border: 2px solid $main-text__primary;
         width: 600px;
         height: 500px;
+
+        
 
         .register-divider {
             grid-area: 'register-divider';
@@ -56,12 +89,24 @@ app-register-view {
             min-height: 70px;
             margin: 1rem;
 
-            .login-button {
+            .login-button_white {
                 font-size: 24px;
                 width: 100%;
+                background-color: transparent;
             }
-            .login-button:hover {
+            .login-button_white:hover {
                 background-color: #ececec;
+            }
+
+            .login-button_contrast {
+                font-size: 24px;
+                width: 100%;
+                background-color: transparent;
+                color: $main-text__contrast;
+            }
+            .login-button_contrast:hover {
+                background-color: $main-text__contrast;
+                color: $main-background__darker;
             }
         }
 
@@ -72,12 +117,24 @@ app-register-view {
             min-height: 70px;
             margin: 1rem;
 
-            .register-button {
+            .register-button_white {
                 font-size: 24px;
                 width: 100%;
+                background-color: transparent;
             }
-            .register-button:hover {
+            .register-button_white:hover {
                 background-color: #ececec;
+            }
+
+            .register-button_contrast {
+                font-size: 24px;
+                width: 100%;
+                background-color: transparent;
+                color: $main-text__contrast;
+            }
+            .register-button_contrast:hover {
+                background-color: $main-text__contrast;
+                color: $main-background__darker;
             }
         }
 
@@ -108,24 +165,48 @@ app-register-view {
                 display: flex;
                 justify-content: center;
 
-                .forgot-button {
+                .forgot-button_white {
                     height: 5vh;
                     border-radius: 10px;
                     width: 50%;
+                    background-color: transparent;
                 }
-                .forgot-button:hover {
+                .forgot-button_white:hover {
                     background-color: #ececec;
+                }
+
+                .forgot-button_contrast {
+                    height: 5vh;
+                    border-radius: 10px;
+                    width: 50%;
+                    background-color: transparent;
+                    color: $main-text__contrast;
+                }
+                .forgot-button_contrast:hover {
+                    background-color: $main-text__contrast;
+                    color: $main-background__darker;
                 }
             }
         }
 
+        .register-password-field_contrast {
+            @extend .register-password-field;
+            @extend .contrast_inputs;
+        }
+
         .register-login-field {
+            @extend .contrast_inputs;
             grid-area: password-field2;
             padding: 3rem;
 
             display: flex;
             justify-content: center;
             flex-direction: column;
+        }
+
+        .register-login-field_contrast {
+            @extend .register-login-field;
+            @extend .contrast_inputs;
         }
     
         .register-login-button {
@@ -142,6 +223,24 @@ app-register-view {
             .login-button:hover {
                 background-color: #ececec;
             }
+
+            .login-button_contrast {
+                grid-area: 'register-buttons';
+                width: 90%;
+                height: 12vh;
+                border-radius: 10px;
+                background-color: transparent;
+                color: $main-text__contrast;
+            }
+            .login-button_contrast:hover {
+                background-color: $main-text__contrast;
+                color: $main-background__darker;
+            }
+        }
+
+        .register-login-button_contrast {
+            @extend .register-login-button;
+            @extend .contrast_inputs;
         }
 
         display: grid;

@@ -36,6 +36,38 @@ app-filter-container {
             display: flex;
             justify-content: space-between;
         }
+        .contrast_inputs {
+            .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+                background-color: transparent;
+                border: 1px solid $main-text__contrast;
+            }
+            .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+                border-bottom-color: transparent;
+            }
+            .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+                color: $main-text__contrast;
+            }
+            .mat-mdc-option {
+                background: $main-background__darker;
+            }
+            .mat-mdc-select-arrow svg {
+                color: $main-text__contrast;
+            }
+            .mat-mdc-select-value-text {
+                color: $main-text__contrast;
+            }
+            .cdk-overlay-pane:not(.mat-mdc-select-panel-above) .mdc-menu-surface.mat-mdc-select-panel {
+                color: $main-text__contrast;
+            }
+            .mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input {
+                color: $main-text__contrast;
+            }
+        }
+
+        .filter-marka_contrast {
+            @extend .filter-marka;
+            @extend .contrast_inputs;
+        }
         .filter-rokprod {
             @extend .filter-common;
             grid-area: filter-rokprod;
@@ -43,6 +75,11 @@ app-filter-container {
             display: flex;
             justify-content: space-between;
         }
+        .filter-rokprod_contrast {
+            @extend .filter-rokprod;
+            @extend .contrast_inputs;
+        }
+
         .filter-lokalizacja {
             @extend .filter-common;
             grid-area: filter-lokalizacja;
@@ -52,18 +89,33 @@ app-filter-container {
                 width: 95%;
             }
         }
+        .filter-lokalizacja_contrast {
+            @extend .filter-lokalizacja;
+            @extend .contrast_inputs;
+        }
+
         .filter-cena {
             @extend .filter-common;
             grid-area: filter-cena;
             display: flex;
             justify-content: space-between;
         }
+        .filter-cena_contrast {
+            @extend .filter-cena;
+            @extend .contrast_inputs;
+        }
+
         .filter-przebieg {
             @extend .filter-common;
             grid-area: filter-przebieg;
             display: flex;
             justify-content: space-between;
         }
+        .filter-przebieg_contrast {
+            @extend .filter-przebieg;
+            @extend .contrast_inputs;
+        }
+
         .filter-stan {
             grid-area: filter-stan;
             @extend .filter-common;
@@ -73,36 +125,85 @@ app-filter-container {
                 width: 95%;
             }
         }
+        .filter-stan_contrast {
+            @extend .filter-stan;
+            @extend .contrast_inputs;
+        }
+
         .filter-range {
             grid-area: filter-range;
+
+            .mat-mdc-slider.mat-primary {
+                --mdc-slider-handle-color: #717cb8;
+                --mdc-slider-focus-handle-color: #717cb8;
+                --mdc-slider-hover-handle-color: #717cb8;
+                --mdc-slider-active-track-color: #717cb8;
+                --mdc-slider-inactive-track-color: #717cb8;
+                --mdc-slider-with-tick-marks-active-container-color: #fff;
+                --mdc-slider-with-tick-marks-inactive-container-color: #717cb8;
+                --mat-mdc-slider-ripple-color: #717cb8;
+                --mat-mdc-slider-hover-ripple-color: rgba(63, 81, 181, 0.05);
+                --mat-mdc-slider-focus-ripple-color: rgba(63, 81, 181, 0.2);
+            }
             
             .filter-slider {
                 width: 93.5%;
             }
         }
-        .filter-button {
+        .filter-button_white {
             grid-area: filter-button;
 
             .filter-button {
                 width: 90%;
                 height: 8vh;
-                border: 2px solid black;
+                border: 2px solid $main-text__primary;
+                color: $main-text__primary;
             }
             .filter-button:hover {
                 background-color: #ececec;
             }
         }
+        .filter-button_contrast {
+            grid-area: filter-button;
 
-        .reset-button {
+            .filter-button {
+                width: 90%;
+                height: 8vh;
+                border: 2px solid $main-text__contrast;
+                color: $main-text__contrast;
+            }
+            .filter-button:hover {
+                background-color: $main-text__contrast;
+                color: $main-text__primary;
+            }
+        }
+
+        .reset-button_white {
             grid-area: reset-button;
 
             .reset-button {
                 width: 90%;
                 height: 8vh;
-                border: 2px solid black;
+                border: 2px solid $main-text__primary;
+                color: $main-text__primary;
             }
             .reset-button:hover {
                 background-color: #ececec;
+                color: $main-text__primary;
+            }
+        }
+        .reset-button_contrast {
+            grid-area: reset-button;
+
+            .reset-button {
+                width: 90%;
+                height: 8vh;
+                border: 2px solid $main-text__contrast;
+                color: $main-text__contrast;
+            }
+            .reset-button:hover {
+                background-color: $main-text__contrast;
+                color: $main-text__primary;
             }
         }
         

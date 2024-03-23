@@ -1,5 +1,5 @@
-<div class="faq-container__white">
-    <div class="faq-container__tile">
+<div [ngClass]="isContrast ? 'faq-container__contrast' : 'faq-container__white'">
+    <div [ngClass]="isContrast ? 'faq-container__tile_contrast' : 'faq-container__tile'">
         <div class="faq-title">
             <span>Wyślij zgłoszenie</span>
         </div>
@@ -13,7 +13,7 @@
         <div class="faq-imie">
             <mat-form-field class="example-full-width">
                 <mat-label>Imię i nazwisko</mat-label>
-                <input matInput placeholder="" value="">
+                <input matInput placeholder="" value="" class="example_input">
             </mat-form-field>
         </div>
         
@@ -45,11 +45,15 @@
         <div class="faq-zalacznik">
             <span class="faq-zalacznik__text">Załączniki</span>
             <input #csvInput hidden="true" type="file" onclick="this.value=null" accept=".csv"/>
-            <button mat-flat-button class="choose-button" color="primary" (click)="csvInput.click()">Wybierz plik</button>
+            <button mat-flat-button 
+                [ngClass]="isContrast ? 'choose-button__contrast' : 'choose-button__white'"
+                color="primary" (click)="csvInput.click()">Wybierz plik</button>
         </div>
 
         <div class="faq-przycisk">
-            <button type class="choose-button" mat-button>Prześlij zgłoszenie</button>
+            <button type 
+                [ngClass]="isContrast ? 'choose-button__contrast' : 'choose-button__white'" 
+                mat-button>Prześlij zgłoszenie</button>
         </div>
         
 

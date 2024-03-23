@@ -1,38 +1,47 @@
-<div 
+<div #headerContainer
     [ngClass]="isContrast ? 'header-background__contrast' : 'header-background__white'"
     class="header-font__medium">
     <div class="header-logo">
         <button class="button_visibility__disabled" [routerLink]="['/home']"> 
-            <span [ngClass]="isContrast ? 'span__contrast' : 'span__white'">
-                LOGO
+            <span [ngClass]="isContrast ? 'is__contrast' : 'is__white'">
+                STRONA GŁÓWNA
             </span>
         </button>
     </div>
     <div class="header-login">
-        <button class="button_visibility__disabled" [routerLink]="['/login']"> 
+        <button class="button_visibility__disabled" 
+            [ngClass]="isContrast ? 'is__contrast' : 'is__white'"
+            [routerLink]="['/login']"> 
             LOGIN
         </button>
     </div>
     <div class="header-account">
-        <button class="button_visibility__disabled" [routerLink]="['/account']"> 
+        <button class="button_visibility__disabled" 
+            [ngClass]="isContrast ? 'is__contrast' : 'is__white'"
+            [routerLink]="['/account']"> 
             TWOJE KONTO
         </button>
     </div>
     <div class="header-faq">
         <div class="header-account">
-            <button class="button_visibility__disabled" [routerLink]="['/faq']"> 
+            <button class="button_visibility__disabled" 
+                [ngClass]="isContrast ? 'is__contrast' : 'is__white'" 
+                [routerLink]="['/faq']"> 
                 FAQ
             </button>
         </div>
     </div>
     <div class="header-more">
-        <button class="header-change__contrast button_visibility__disabled" (click)="changeContrast()">
+        <button class="header-change__contrast button_visibility__disabled" (click)="changeContrast()"
+        [ngClass]="isContrast ? 'is__contrast' : 'is__white'" >
             <mat-icon aria-hidden="false" aria-label="contrast icon" fontIcon="contrast"></mat-icon>
         </button>
-        <button class="header_change__fontToSmall button_visibility__disabled" (click)="fontDecrease()">
+        <button class="header_change__fontToSmall button_visibility__disabled" (click)="fontDecrease()"
+        [ngClass]="isContrast ? 'is__contrast' : 'is__white'">
             <mat-icon aria-hidden="false" aria-label="contrast icon" fontIcon="text_decrease"></mat-icon>
         </button>
-        <button class="header_change__fontToLarge button_visibility__disabled" (click)="fontIncrease()">
+        <button class="header_change__fontToLarge button_visibility__disabled" (click)="fontIncrease()"
+        [ngClass]="isContrast ? 'is__contrast' : 'is__white'">
             <mat-icon aria-hidden="false" aria-label="contrast icon" fontIcon="text_increase"></mat-icon>
         </button>
     </div>

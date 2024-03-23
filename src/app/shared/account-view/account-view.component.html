@@ -1,25 +1,47 @@
-<div class="account_view__white">
+<div [ngClass]="isContrast ? 'account_view__contrast' : 'account_view__white'">
     <div class="account_view__body">
         <div class="account_view__title">
             <span aria-label="Your account">Twoje konto</span>
         </div>
         <div class="account_view__buttons">
             <div class="account_view__buttons_display">
-                <div [ngClass]="activeField === 'offers' ? 'account_view__buttons-offers_active' : 'account_view__buttons-offers'">
-                    <button class=" button_visibility__disabled button-size" (click)="activateView('offers')">
-                        <span aria-label="Go to the view of your offers">Twoje ogłoszenia</span>
+
+                <div [ngClass]="{
+                    'account_view__buttons-offers_active': activeField === 'offers' && !isContrast,
+                    'account_view__buttons-offers': activeField !== 'offers' && !isContrast,
+                    'account_view__buttons-offers_active_contrast': activeField === 'offers' && isContrast,
+                    'account_view__buttons-offers_contrast': activeField !== 'offers' && isContrast}"
+                >
+                    <button class="button-size" (click)="activateView('offers')" aria-label="Go to the view of your offers"
+                    [ngClass]="isContrast && activeField !== 'offers' ? 'button_visibility__disabled__contrast' : 'button_visibility__disabled__white'">
+                        Twoje ogłoszenia
                     </button>
                 </div>
-                <div [ngClass]="activeField === 'observed' ? 'account_view__buttons-observed_active' : 'account_view__buttons-observed'">
-                    <button class="button_visibility__disabled button-size" (click)="activateView('observed')">
-                        <span aria-label="Go to the view of observed offers">Obserwowane</span>
+
+                <div [ngClass]="{'account_view__buttons-observed_active': activeField === 'observed' && !isContrast,
+                'account_view__buttons-observed': activeField !== 'observed' && !isContrast,
+                'account_view__buttons-observed_active_contrast': activeField === 'observed' && isContrast,
+                'account_view__buttons-observed_contrast': activeField !== 'observed' && isContrast}"
+                >
+                    <button class="button-size" (click)="activateView('observed')" 
+                    aria-label="Go to the view of observed offers"
+                    [ngClass]="isContrast && activeField !== 'observed'? 'button_visibility__disabled__contrast' : 'button_visibility__disabled__white'">
+                        Obserwowane
                     </button>
                 </div>
-                <div [ngClass]="activeField === 'settings' ? 'account_view__buttons-settings_active' : 'account_view__buttons-settings'">
-                    <button class="button_visibility__disabled button-size" (click)="activateView('settings')">
-                        <span aria-label="Go to the view of settings">Ustawienia</span>
+
+                <div [ngClass]="{
+                    'account_view__buttons-settings_active': activeField === 'settings' && !isContrast,
+                    'account_view__buttons-settings': activeField !== 'settings' && !isContrast,
+                    'account_view__buttons-settings_active_contrast': activeField === 'settings' && isContrast,
+                    'account_view__buttons-settings_contrast': activeField !== 'settings' && isContrast}"
+                >
+                    <button class="button-size" (click)="activateView('settings')" aria-label="Go to the view of settings"
+                    [ngClass]="isContrast && activeField !== 'settings' ? 'button_visibility__disabled__contrast' : 'button_visibility__disabled__white'">
+                       Ustawienia
                     </button>
                 </div>
+
             </div>
         </div>
         <div class="account_view__view">
@@ -48,7 +70,7 @@
                 </ng-template>
             </div>
             <div class="account_view__view-settings" *ngIf="activeField === 'settings'">
-                <div class="change-password">
+                <div [ngClass]="isContrast ? 'change-password_contrast' : 'change-password'">
                     <div class="register-login-field">
                         <mat-form-field class="example-full-width">
                             <mat-label aria-label="Email address">Aktualne hasło</mat-label>
@@ -61,14 +83,18 @@
                             <input type="password" matInput value="">
                         </mat-form-field>
                     </div>
-                    <div class="confirm-password">
-                        <button mat-button class="button_visibility__disabled confirm-password-details">
-                            <span aria-label="Change password">Zmień hasło</span>
+                    <div [ngClass]="isContrast ? 'confirm-password_contrast' : 'confirm-password'">
+                        <button mat-button
+                            [ngClass]="isContrast ? 'button_visibility__contrast_register' : 'button_visibility__disabled__white'" 
+                            aria-label="Change password">
+                            Zmień hasło
                         </button>
                     </div>
-                    <div class="logout-button">
-                        <button mat-button class="button_visibility__disabled logout-button-details">
-                            <span aria-label="Logout">Wyloguj się</span>
+                    <div [ngClass]="isContrast ? 'logout-button_contrast' : 'logout-button'">
+                        <button mat-button 
+                            [ngClass]="isContrast ? 'button_visibility__contrast_register' : 'button_visibility__disabled__white'" 
+                            aria-label="Logout">
+                            Wyloguj się
                         </button>
                     </div>
             </div>

@@ -1,37 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from '@angular/core';
+import { StorageService } from '../shared/storage.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   showMenuOption: boolean = false;
   isContrast: boolean;
   textColor: string;
+  switchContrast$: Observable<string>;
+  subscription: Subscription = new Subscription;
 
-  constructor() {}
+  constructor(private storage: StorageService) {}
+
+  ngAfterViewInit(): void {
+    // this.subscription.add(
+    //   this.switchContrast$ = 
+    // )
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.isContrast = !!localStorage.getItem('contrast');
-    console.info('isContrast: ', this.isContrast)
-    this.textColor = this.isContrast ? 'header-background__contrast' : 'header-background__white';
+    if (!localStorage.getItem('contrast')) {
+      localStorage.setItem('contrast', 'false');
+    }
+    if (localStorage.getItem('font')) {
+      localStorage.setItem('font', '16');
+    }
   }
 
   changeContrast() {
-    if (!localStorage.getItem('contrast')) {
-      localStorage.setItem('contrast', 'true');
-    } else {
-      localStorage.removeItem('contrast');
-    }
-    window.location.reload();
+    this.isContrast = this.storage.switchContrast(this.isContrast);
   }
 
   fontDecrease() {
-    console.info('decrease')
+    this.storage.switchFontSize('up');
   }
 
   fontIncrease() {
-    console.info('increase')
+    this.storage.switchFontSize('down');
   }
 }

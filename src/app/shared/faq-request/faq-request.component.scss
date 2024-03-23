@@ -1,9 +1,36 @@
 @import './../shared.module.scss';
 
 app-faq-request {
+    .contrast_inputs {
+        .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+            background-color: transparent;
+            border: 1px solid $main-text__contrast;
+        }
+        .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+            border-bottom-color: transparent;
+        }
+        .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+            color: $main-text__contrast;
+        }
+        .mat-mdc-option {
+            background: $main-background__darker;
+        }
+        .mat-mdc-select-arrow svg {
+            color: $main-text__contrast;
+        }
+        .mat-mdc-select-value-text {
+            color: $main-text__contrast;
+        }
+        .cdk-overlay-pane:not(.mat-mdc-select-panel-above) .mdc-menu-surface.mat-mdc-select-panel {
+            color: $main-text__contrast;
+        }
+        .mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input {
+            color: $main-text__contrast;
+        }
+    }
 
     .faq_container {
-        min-height: 600px;
+        min-height: 1000px;
         padding: 2rem;
         display: flex;
         justify-content: center;
@@ -27,6 +54,11 @@ app-faq-request {
         color: $main-text__contrast;
     }
 
+    .faq-container__tile_contrast {
+        @extend .faq-container__tile;
+        @extend .contrast_inputs;
+    }
+
     .faq-container__tile {
         width: 50%;
         min-height: 100px;
@@ -47,6 +79,7 @@ app-faq-request {
         .example-full-width {
             padding: 1rem;
             width: 100%;
+            background-color: transparent;
         }
         
         .faq-title {
@@ -82,7 +115,6 @@ app-faq-request {
         }
         .faq-zalacznik {
             grid-area: faq-zalacznik;
-            
 
             .faq-zalacznik__text {
                 margin-bottom: 1rem;
@@ -94,10 +126,28 @@ app-faq-request {
 
         
 
-        .choose-button {
+        .choose-button__white {
             width: 90%;
             height: 10vh;
-            border: 2px solid black;
+            border: 2px solid $main-background__darker;
+
+            cursor: pointer;
+        }
+        .choose-button__white:hover {
+            background-color: #ececec;
+        }
+
+        .choose-button__contrast {
+            width: 90%;
+            height: 10vh;
+            border: 2px solid $main-text__contrast;
+            background-color: transparent;
+            color: $main-text__contrast;
+            cursor: pointer;
+        }
+        .choose-button__contrast:hover {
+            background-color: $main-text__contrast;
+            color: $main-background__darker;
         }
     }
 }

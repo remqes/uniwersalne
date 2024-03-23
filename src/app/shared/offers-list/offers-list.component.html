@@ -2,7 +2,7 @@
     <div class="offer-fileds" *ngIf="filteredQuery$ | async as query">
         <div class="offer-title">
             <span class="offer-title__osobowe">Samochody osobowe ({{ query.length }})</span>
-            <mat-form-field appearance="fill" class="offer-title__filter" *ngIf="query.length !== 0">
+            <!-- <mat-form-field appearance="fill" class="offer-title__filter" *ngIf="query.length !== 0">
                 <mat-label>Sortuj</mat-label>
                 <mat-select disabled="true">
                     <mat-option value="Polecane">
@@ -23,8 +23,8 @@
                     <mat-option value="Przebieg: od największego">
                         Przebieg: od największego
                     </mat-option>
-                </mat-select>
-              </mat-form-field>
+                </mat-select> -->
+              <!-- </mat-form-field> -->
         </div>
         <div class="offer-field__white" *ngFor="let record of query; let index = index">
             <app-tile-record
@@ -37,7 +37,7 @@
         <div class="offer-title" *ngIf="observedLocalStorage.length !== 0">
             <span class="offer-title__osobowe">
                 Samochody osobowe ({{ observedLocalStorage.length }})</span>
-            <mat-form-field appearance="fill" class="offer-title__filter">
+            <!-- <mat-form-field appearance="fill" class="offer-title__filter">
                 <mat-label>Sortuj</mat-label>
                 <mat-select name="food">
                     <mat-option value="Polecane">
@@ -59,7 +59,7 @@
                         Przebieg: od największego
                     </mat-option>
                 </mat-select>
-              </mat-form-field>
+              </mat-form-field> -->
         </div>
         <div class="offer-field__white" *ngFor="let record of observedLocalStorage; let index = index">
             <app-tile-record

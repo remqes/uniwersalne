@@ -1,16 +1,16 @@
-<div class="home-page__container__white">
-    <div class="home-page__filter__white">
-        <app-filter-container
-            (emitFilter)="filterEmitter($event)"
-            ></app-filter-container>
-    </div>
-    <div>
-        <div class="home-page__offers__white">
-            <app-offers-list
-                class="home-page__offers__list"
-                [filteredQuery$]="fetchedData$"
-                [isGlobalOffers]="true"
-            ></app-offers-list>
+<div [ngClass]="isContrast ? 'home-page__container__contrast' : 'home-page__container__white'">    
+        <div [ngClass]="isContrast ? 'home-page__filter__contrast' : 'home-page__filter__white'">
+            <app-filter-container
+                (emitFilter)="filterEmitter($event)"
+                ></app-filter-container>
         </div>
-    </div>
+        <div>
+            <div [ngClass]="isContrast ? 'home-page__offers__contrast' : 'home-page__offers__white'">
+                <app-offers-list
+                    class="home-page__offers__list"
+                    [filteredQuery$]="fetchedData$"
+                    [isGlobalOffers]="true"
+                ></app-offers-list>
+            </div>
+        </div>
 </div>

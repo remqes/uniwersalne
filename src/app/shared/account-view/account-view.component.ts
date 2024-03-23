@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { StorageService } from '../storage.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -14,19 +14,25 @@ const enum ButtonTypes {
   templateUrl: './account-view.component.html',
   styleUrls: ['./account-view.component.scss']
 })
-export class AccountViewComponent implements OnInit {
+export class AccountViewComponent implements OnInit, DoCheck {
 
   constructor(private storage: StorageService, private http: HttpClient) {}
 
   activeField: string;
+  isContrast: boolean;
   isFavInStorage: boolean = false;
   getUserOffers$: Observable<any>;
 
   ngOnInit(): void {
     this.activeField = this.storage.activeField ?? 'observed';
     this.getUserOffers$ = this.storage.getUserOffers();
+    this.isContrast = !!localStorage.getItem('contrast');
 
     this.isFavInStorage = localStorage.getItem('favourite') !== null;
+  }
+
+  ngDoCheck(): void {
+    this.isContrast = !!localStorage.getItem('contrast');
   }
 
   activateView(type: string) {

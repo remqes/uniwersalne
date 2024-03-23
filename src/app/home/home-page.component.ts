@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit,  } from '@angular/core';
+import { Component, OnDestroy, OnInit, DoCheck } from '@angular/core';
 import { EMPTY, Observable, Subscription, of } from 'rxjs';
 import { map, tap, catchError, filter, switchMap } from 'rxjs/operators';
 import { isEmpty } from 'lodash';
@@ -13,8 +13,10 @@ import { StorageService } from '../shared/storage.service';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnDestroy, OnInit{
+export class HomePageComponent implements DoCheck, OnDestroy, OnInit {
 
+  isContrast: boolean;
+  fontSize: string;
   fetchedData$: Observable<any>;
   subscription: Subscription = new Subscription;
 
@@ -27,8 +29,15 @@ export class HomePageComponent implements OnDestroy, OnInit{
 
   }
 
+  ngDoCheck(): void {
+    this.isContrast = !!localStorage.getItem('contrast');
+    this.fontSize = localStorage.getItem('font') ?? 'small';
+  }
+
   ngOnInit(): void {
-      this.fetchData();
+    this.isContrast = !!localStorage.getItem('contrast');
+    this.fontSize = localStorage.getItem('font') ?? 'small';
+    this.fetchData();
   }
 
   filterEmitter(event: any) {

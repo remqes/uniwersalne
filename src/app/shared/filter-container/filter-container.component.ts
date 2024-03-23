@@ -1,14 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, OnDestroy, Output, DoCheck } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { StorageService } from '../storage.service';
-import { filter, tap, EMPTY, catchError } from 'rxjs';
+import { filter, tap, EMPTY, catchError, Subject, Observable, Subscription, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-filter-container',
   templateUrl: './filter-container.component.html',
   styleUrls: ['./filter-container.component.scss']
 })
-export class FilterContainerComponent implements OnInit {
+export class FilterContainerComponent implements OnInit, OnDestroy, DoCheck {
+
+  isContrast: boolean;
 
   @Input() query: any;
   @Output() filteredQuery: EventEmitter<any>;
@@ -66,7 +68,18 @@ export class FilterContainerComponent implements OnInit {
     private storage: StorageService,
   ) {}
 
+
+  ngOnDestroy(): void {
+  }
+  
+  ngDoCheck(): void {
+    this.isContrast = !!localStorage.getItem('contrast');
+  }
+
   ngOnInit() {
+
+    this.isContrast = !!localStorage.getItem('contrast');
+
     this.f.cenaMin.valueChanges.subscribe((value) => {
       this.f.cenaMin.setValue(value, { emitEvent: false});
     });
