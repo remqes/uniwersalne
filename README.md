@@ -1,1 +1,0 @@
-Projektowanie uniwersalne w informatyce - temat "Projekt strony ze sprzedażą aut używanych (na wzór otomoto)".
